@@ -1,0 +1,49 @@
+const header = document.getElementById('header');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+
+const observerOptions = {
+    threshold: 0.1 
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.card').forEach(card => {
+    
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(40px)';
+    card.style.transition = 'all 0.8s ease-out'; 
+    observer.observe(card);
+});
+
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button');
+    const originalText = btn.innerText;
+    
+    btn.disabled = true;
+    btn.innerText = 'Enviando...';
+
+   
+    setTimeout(() => {
+        alert('Sua solicitação premium foi recebida. Entraremos em contato!');
+        this.reset();
+        btn.disabled = false;
+        btn.innerText = originalText;
+    }, 1500); 
+});
