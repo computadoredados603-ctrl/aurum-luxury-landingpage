@@ -10,9 +10,10 @@
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 html, body {
@@ -67,13 +68,17 @@ nav a {
 nav a:hover { color: var(--primary); }
 
 .hero {
+
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 160px 8% 80px;
-    background: radial-gradient(circle at 80% 20%, rgba(212, 155, 55, 0.08), transparent);    
-}
+    background: radial-gradient(circle at 80% 20%, rgba(212, 155, 55, 0.08), transparent) no-repeat;
+    background-attachment: scroll; 
+    background-size: cover; 
+} 
+
 
 .hero-content {
     text-align: center;
@@ -198,6 +203,7 @@ footer { text-align: center; padding: 40px; color: var(--text-muted); font-size:
     header { padding: 1rem 5%; }
     nav { display: none; }
     .input-row { grid-template-columns: 1fr; }
+    .hero { padding: 120px 5% 60px; } 
     .hero h1 { font-size: 2.5rem; }
     .btn-primary, .btn-secondary { width: 100%; text-align: center; }
 }
