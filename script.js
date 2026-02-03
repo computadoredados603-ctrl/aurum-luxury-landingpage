@@ -1,23 +1,14 @@
 (function() {
     const mainHeader = document.getElementById('header');
+    const contactForm = document.getElementById('contactForm');
 
-
-    if (mainHeader) {
-        window.addEventListener('scroll', () => {
-            
-            if (window.scrollY > 50) {
-                mainHeader.classList.add('scrolled');
-            } else {
-                mainHeader.classList.remove('scrolled');
-            }
-        });
-    }
-
-
-    const observerOptions = { 
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px" 
-    };
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            mainHeader.classList.add('scrolled');
+        } else {
+            mainHeader.classList.remove('scrolled');
+        }
+    });
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -26,17 +17,15 @@
                 entry.target.style.transform = 'translateY(0)';
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1 });
 
     document.querySelectorAll('.card').forEach(card => {
         card.style.opacity = '0';
-        card.style.transform = 'translateY(40px)';
-        card.style.transition = 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)'; 
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease-out';
         observer.observe(card);
     });
 
-
-    const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -46,7 +35,6 @@
             btn.disabled = true;
             btn.innerText = 'Enviando...';
 
-        
             setTimeout(() => {
                 alert('Sua solicitação premium foi recebida. Entraremos em contato!');
                 this.reset();
