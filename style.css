@@ -51,30 +51,60 @@ nav a {
 .hero {
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 120px 8% 60px;
+    padding: 100px 8%;
     background: radial-gradient(circle at 80% 20%, rgba(212, 155, 55, 0.1), transparent), var(--bg-dark);
     text-align: center;
 }
 
 .hero-content {
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1.1; margin-bottom: 2rem; }
-
-.services { 
-    padding: 100px 8%; 
-    max-width: 1400px; 
-    margin: 0 auto; 
+.hero h1 { 
+    font-size: clamp(2.5rem, 8vw, 4.5rem); 
+    line-height: 1.1; 
+    margin-bottom: 1.5rem; 
 }
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+}
+
+.hero-btns { 
+    display: flex; 
+    gap: 1.5rem; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.btn-primary { background: var(--primary); color: #000; }
+.btn-secondary { border: 1px solid rgba(255,255,255,0.1); color: #fff; }
+
+.services { padding: 100px 8%; max-width: 1400px; margin: 0 auto; }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+    margin-top: 50px;
 }
 
 .card {
@@ -82,7 +112,6 @@ nav a {
     padding: 40px;
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    text-align: left;
     transition: var(--transition);
 }
 
@@ -90,32 +119,18 @@ nav a {
     transform: translateY(-10px);
     border-color: var(--primary);
     background: #1a1a1a;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .card i {
     font-size: 2.5rem;
     color: var(--primary);
     margin-bottom: 1.5rem;
-    display: inline-block;
+    display: block;
 }
 
-.contact { 
-    padding: 100px 8%; 
-    background: #080808; 
-}
-
-.form-wrapper { 
-    max-width: 700px; 
-    margin: 0 auto; 
-}
-
-.input-row { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 15px; 
-    margin-bottom: 15px; 
-}
+.contact { padding: 100px 8%; }
+.form-wrapper { max-width: 700px; margin: 0 auto; }
+.input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
 
 input, textarea {
     background: #1a1a1a;
@@ -123,29 +138,14 @@ input, textarea {
     color: white;
     padding: 15px;
     border-radius: 8px;
-    outline: none;
     width: 100%;
 }
 
-input:focus, textarea:focus { border-color: var(--primary); }
-
-.btn-primary {
-    background: var(--primary);
-    color: black;
-    padding: 18px;
-    border: none;
-    border-radius: 8px;
-    font-weight: 700;
-    width: 100%;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-footer { padding: 40px; text-align: center; border-top: 1px solid #222; color: #555; }
+footer { padding: 50px 8%; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
 
 @media (max-width: 768px) {
     nav { display: none; }
+    .hero-btns { flex-direction: column; width: 100%; }
+    .btn-primary, .btn-secondary { width: 100%; }
     .input-row { grid-template-columns: 1fr; }
-    header { padding: 0 20px; }
-    .hero { padding-top: 100px; }
 }
