@@ -39,7 +39,12 @@ header.scrolled {
 }
 
 .logo { font-size: 1.6rem; font-weight: 800; letter-spacing: -1px; }
-.logo span { color: var(--primary); }
+.logo span { 
+    background: linear-gradient(135deg, #d4af37 0%, #f2d06b 50%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+}
 
 nav a {
     color: var(--text-light);
