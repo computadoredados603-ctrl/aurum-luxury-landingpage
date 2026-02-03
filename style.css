@@ -31,7 +31,8 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1.5rem 8%;
+    height: 90px; 
+    padding: 0 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,9 +43,9 @@ header {
 }
 
 header.scrolled {
+    height: 70px;
     background: rgba(5, 5, 5, 0.95);
     backdrop-filter: blur(15px);
-    padding: 1rem 8%;
     border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
 
@@ -67,7 +68,7 @@ nav a {
 
 nav a:hover { color: var(--primary); }
 
-/* --- SEÇÕES (Correção de Repetição) --- */
+
 section {
     width: 100%;
     position: relative;
@@ -82,7 +83,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 160px 8% 80px;
+    padding: 100px 8% 80px; 
     background: radial-gradient(circle at 80% 20%, rgba(212, 155, 55, 0.12), transparent) no-repeat;
     background-color: var(--bg-dark);
 } 
@@ -207,12 +208,13 @@ input:focus, textarea:focus { border-color: var(--primary); }
 
 footer { text-align: center; padding: 60px 40px; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); }
 
-/* --- RESPONSIVIDADE --- */
+
 @media (max-width: 768px) {
-    header { padding: 1rem 5%; }
-    nav { display: none; } /* Menu hamburguer seria ideal aqui depois */
+    header { height: 70px; padding: 0 5%; }
+    header.scrolled { height: 60px; }
+    nav { display: none; }
     .input-row { grid-template-columns: 1fr; }
-    .hero { padding: 140px 5% 60px; } 
+    .hero { padding: 120px 5% 60px; } 
     .hero h1 { font-size: 2.8rem; }
     .btn-primary, .btn-secondary { width: 100%; }
 }
